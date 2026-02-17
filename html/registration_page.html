@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: beige;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background: white;
+        padding: 30px;
+        width: 350px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+      }
+
+      button {
+        width: 100%;
+        padding: 8px;
+        background: #36b9cc;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Register</h2>
+
+      <form action="login.html">
+        <input type="text" placeholder="full name" required />
+        <input type="email" placeholder="email" required />
+        <input type="tel" placeholder="phone number" required />
+        <input type="date" placeholder="date of birth" />
+        <input type="password" placeholder="password" required />
+        <button type="submit">Register</button>
+      </form>
+
+      <br />
+      <a href="login.html">Already have an account? Login</a>
+    </div>
+  </body>
+</html>

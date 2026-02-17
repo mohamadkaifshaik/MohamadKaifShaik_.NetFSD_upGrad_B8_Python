@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Form 2</title>
+  </head>
+  <body>
+    <h2>Form 2</h2>
+
+    <p id="displayName"></p>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("username");
+      document.getElementById("displayName").innerText = "Welcome " + name;
+    </script>
+  </body>
+</html>
