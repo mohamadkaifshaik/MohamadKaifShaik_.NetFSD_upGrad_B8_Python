@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head> </head>
+  <body>
+    <h2>Register</h2>
+
+    <input type="text" id="name" placeholder="Enter Name" />
+    <input type="email" id="email" placeholder="Enter Email" />
+    <input type="password" id="password" placeholder="Enter Password" />
+
+    <button onclick="register()">Register</button>
+
+    <p>Already have account? <a href="login.html">Login</a></p>
+
+    <script>
+      function register() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        localStorage.setItem("name", name);
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+
+        alert("Registration Successful");
+        window.location.href = "login.html";
+      }
+    </script>
+  </body>
+</html>
