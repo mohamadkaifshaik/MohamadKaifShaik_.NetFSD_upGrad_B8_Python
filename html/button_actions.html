@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Buttons</title>
+  </head>
+  <body>
+    <h1>Click</h1>
+    <button onclick="onClick()">Click Button</button>
+
+    <h2>Mouse Over</h2>
+    <button onmouseover="mouseOver()">Hover Button</button>
+
+    <h3>Mouse Out</h3>
+    <button onmouseout="mouseOut()">Move Mouse Out Button</button>
+
+    <h4>Key Pressed Down</h4>
+    <input type="text" onkeydown="keyDown()" placeholder="Press" />
+
+    <h5>Key lift Up</h5>
+    <input type="text" onkeyup="keyUp()" placeholder="Press and release" />
+
+    <h6>Change Event</h6>
+    <select onchange="onChange()">
+      <option value="">Select</option>
+      <option value="Change_one">Change_One</option>
+      <option value="Change_Two">Change_Two</option>
+    </select>
+
+    <script>
+      function onClick() {
+        alert("Hey you clicked the button");
+      }
+
+      function mouseOver() {
+        alert("Mouse pointed on me");
+      }
+
+      function mouseOut() {
+        alert("Pointer came and went through me");
+      }
+
+      function keyDown() {
+        alert("Hey you pressed the Key");
+      }
+
+      function keyUp() {
+        alert("Hey you pressed and lifted the key");
+      }
+
+      function onChange() {
+        alert("Hey you just changed the selection");
+      }
+    </script>
+  </body>
+</html>

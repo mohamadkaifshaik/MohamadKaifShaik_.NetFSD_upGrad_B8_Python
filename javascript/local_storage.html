@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Storage</title>
+  </head>
+  <body>
+    <center>
+      <h3>City</h3>
+
+      <select id="city">
+        <option value="">Select</option>
+        <option value="Bngl">Bngl</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Hyd">Hyd</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Pune">Pune</option>
+        <option value="Delhi">Delhi</option>
+      </select>
+
+      <br /><br />
+
+      <h3>Color</h3>
+
+      <input type="color" id="color" />
+
+      <br /><br />
+
+      <button onclick="onClick()">Save</button>
+
+      <h3>After Saving:</h3>
+      <p id="saved"></p>
+    </center>
+
+    <script>
+      function onClick() {
+        var city = document.getElementById("city").value;
+        var color = document.getElementById("color").value;
+
+        localStorage.setItem("city", city);
+        localStorage.setItem("color", color);
+      }
+    </script>
+  </body>
+</html>
