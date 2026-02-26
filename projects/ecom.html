@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shopeee</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Shopeee</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Categories</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Offers</a></li>
+            <li class="nav-item">
+              <a class="nav-link position-relative" href="#">
+                Cart
+                <!-- <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                >
+                  2
+                </span> -->
+              </a>
+              <li>
+                <button class="btn btn-outline-light btn-sm" onclick="logout()">
+                Sign Out
+              </button>
+              </li>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid bg-light py-5 text-center">
+      <h1 class="fw-bold">Fresh Groceries Delivered in 10 Minutes</h1>
+      <p class="lead">Fast • Fresh • Affordable</p>
+      <button class="btn btn-success">Shop Now</button>
+    </div>
+    <div class="container my-5">
+      <h2 class="text-center mb-4">Popular Products</h2>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTbhOpCZRyrftxn9vFk4ngnyjLj-9pDwNUMjjrBPfYSGqbbMvojuv5xcXu2KIzpwXtKJbwhafcp7Ilt3LsnnOQFNvaqNMGznELk8qMhCqiHEx33z_cdDGTHK50k-XaJoVmUyFpIcg&usqp=CAc"
+              class="card-img-top"
+              alt="Apples"
+            />
+            <div class="card-body text-center">
+              <h6 class="card-title">Fresh Apples</h6>
+              <p class="card-text text-success fw-bold">₹120 / kg</p>
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-success w-100">Add to Cart</button>
+              <a href="product.html?id=1" class="btn btn-outline-success w-100">Product Details</a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTIHi29Abhubcf3CoqJPQ4V_OncXRKsdxAaK_hfxiA7vu0mnlPqOWkrtCQLjuZUi1QHIY-72K9hbJbL_zKONmDq5Sb2nMh7nWHZhb3BiHPy1sSrqX5TjztJXOa1IDNV5MksntRXkOU&usqp=CAc"
+              class="card-img-top"
+              alt="Milk"
+            />
+            <div class="card-body text-center">
+              <h6 class="card-title">Organic Milk</h6>
+              <p class="card-text text-success fw-bold">₹60</p>
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-success w-100">Add to Cart</button>
+              <a href="product.html?id=2" class="btn btn-outline-success w-100">Product Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTUTbVwVTfwdejtincVGNy-hlKEP3YuztkASTiNBt0SG9PhkaWMMZ599qArCr5zeheLRbWFDieBkJRQxsIxohCV1hpTPv63ph_agLZ262C0EIBMs6NuU0GdTzHJCYGz3csKbCotnxo&usqp=CAc"
+              class="card-img-top"
+              alt="Rice"
+            />
+            <div class="card-body text-center">
+              <h6 class="card-title">Premium Rice</h6>
+              <p class="card-text text-success fw-bold">₹80 / kg</p>
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-success w-100">Add to Cart</button>
+              <a href="product.html?id=3" class="btn btn-outline-success w-100">Product Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://cdn.mos.cms.futurecdn.net/v2/t:0,l:200,cw:1200,ch:1200,q:80,w:1200/ttRcAKkAuabG9JWzvahtiA.jpg"
+              class="card-img-top"
+              alt="Vegetables"
+            />
+            <div class="card-body text-center">
+              <h6 class="card-title">Fresh Vegetables</h6>
+              <p class="card-text text-success fw-bold">₹50 / pack</p>
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-success w-100">Add to Cart</button>
+              <a href="product.html?id=4" class="btn btn-outline-success w-100">Product Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-success text-white text-center p-3">
+      <p class="mb-0">© 2026 Shopeee. All Rights Reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function logout() {
+        // sessionStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+    }
+</script>
+  </body>
+</html>

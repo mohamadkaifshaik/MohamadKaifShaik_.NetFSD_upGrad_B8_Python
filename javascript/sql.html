@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Web SQL Example</title>
+  </head>
+  <body>
+    <h2>Employee Management</h2>
+
+    <input type="text" id="name" placeholder="Name" />
+    <input type="number" id="salary" placeholder="Salary" />
+    <button onclick="addEmployee()">Add Employee</button>
+
+    <ul id="employeeList"></ul>
+
+    <script>
+      var db = openDatabase(
+        "EmployeeDB",
+        "1.0",
+        "Employee Database",
+        2 * 1024 * 1024,
+      );
+
+      db.transaction(function (tx) {
+        tx.executeSql(
+          "CREATE TABLE IF NOT EXISTS employees (id INTEGER PRIMARY KEY, name TEXT, salary REAL)",
+        );
+      });
+
+      function addEmployee() {
+        var name = document.getElementById("name").value;
+        var salary = document.getElementById("salary").value;
+
+        db.transaction(function (tx) {
+          tx.executeSql("INSERT INTO employees (name, salary) VALUES (?, ?)", [
+            name,
+            salary,
+          ]);
+        });
+
+        loadEmployees();
+      }
+
+      function loadEmployees() {
+        db.transaction(function (tx) {
+          tx.executeSql("SELECT * FROM employees", [], function (tx, results) {
+            var list = document.getElementById("employeeList");
+            list.innerHTML = "";
+
+            for (var i = 0; i < results.rows.length; i++) {
+              var item = results.rows.item(i);
+              list.innerHTML +=
+                "<li>" + item.name + " - ₹" + item.salary + "</li>";
+            }
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

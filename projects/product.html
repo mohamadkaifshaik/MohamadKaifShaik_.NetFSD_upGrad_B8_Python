@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Details - Shopeee</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light">
+    <div class="container my-5">
+      <div class="mb-4">
+        <button onclick="goBack()" class="btn btn-outline-secondary">
+          ← Back
+        </button>
+
+        <script>
+          function goBack() {
+            window.history.back();
+          }
+        </script>
+      </div>
+
+      <div class="card shadow p-4">
+        <div class="row g-4">
+          <div class="col-md-6 text-center">
+            <img
+              id="productImage"
+              class="img-fluid rounded"
+              style="max-height: 400px"
+            />
+          </div>
+          <div class="col-md-6">
+            <h2 id="productName" class="fw-bold"></h2>
+            <h4 class="text-success mb-3" id="productPrice"></h4>
+
+            <p id="productDesc" class="text-muted"></p>
+
+            <hr />
+            <div class="d-flex align-items-center mb-3">
+              <button class="btn btn-outline-success" onclick="decreaseQty()">
+                -
+              </button>
+              <input
+                type="number"
+                id="quantity"
+                value="1"
+                min="1"
+                class="form-control text-center mx-2"
+                style="width: 80px"
+              />
+              <button class="btn btn-outline-success" onclick="increaseQty()">
+                +
+              </button>
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-success btn-lg" onclick="addToCart()">
+                Add to Cart
+              </button>
+              <button class="btn btn-warning btn-lg">Buy Now</button>
+            </div>
+
+            <hr />
+            <h5>Product Highlights</h5>
+            <ul id="productHighlights"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const products = {
+        1: {
+          name: "Fresh Apples",
+          price: "₹120 / kg",
+          image:
+            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTbhOpCZRyrftxn9vFk4ngnyjLj-9pDwNUMjjrBPfYSGqbbMvojuv5xcXu2KIzpwXtKJbwhafcp7Ilt3LsnnOQFNvaqNMGznELk8qMhCqiHEx33z_cdDGTHK50k-XaJoVmUyFpIcg&usqp=CAc",
+          desc: "Farm fresh apples directly sourced from organic farms. Rich in fiber and vitamins.",
+          highlights: [
+            "100% Organic",
+            "Rich in Vitamin C",
+            "Freshly Packed",
+            "Fast Delivery",
+          ],
+        },
+        2: {
+          name: "Organic Milk",
+          price: "₹60",
+          image:
+            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTIHi29Abhubcf3CoqJPQ4V_OncXRKsdxAaK_hfxiA7vu0mnlPqOWkrtCQLjuZUi1QHIY-72K9hbJbL_zKONmDq5Sb2nMh7nWHZhb3BiHPy1sSrqX5TjztJXOa1IDNV5MksntRXkOU&usqp=CAc",
+          desc: "Pure organic cow milk with high nutrition value. Fresh and healthy.",
+          highlights: [
+            "High Calcium",
+            "No Preservatives",
+            "Farm Fresh",
+            "Daily Delivery",
+          ],
+        },
+        3: {
+          name: "Primium Rice",
+          price: "₹80 / kg",
+          image:
+            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTUTbVwVTfwdejtincVGNy-hlKEP3YuztkASTiNBt0SG9PhkaWMMZ599qArCr5zeheLRbWFDieBkJRQxsIxohCV1hpTPv63ph_agLZ262C0EIBMs6NuU0GdTzHJCYGz3csKbCotnxo&usqp=CAc",
+          desc: "Pure organic Rice with high nutrition value.",
+          highlights: [
+            "High Nutrients",
+            "No Preservatives",
+            "Farm Fresh",
+            "Montly Delivery",
+          ],
+        },
+        4: {
+          name: "Vegetables",
+          price: "₹50 / Pack",
+          image:
+            "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:200,cw:1200,ch:1200,q:80,w:1200/ttRcAKkAuabG9JWzvahtiA.jpg",
+          desc: "Pure organic Vegies with high nutrition value.",
+          highlights: [
+            "High Nutrients",
+            "No Preservatives",
+            "Farm Fresh",
+            "Daily Delivery",
+          ],
+        },
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+
+      const product = products[id];
+
+      if (product) {
+        document.getElementById("productName").innerText = product.name;
+        document.getElementById("productPrice").innerText = product.price;
+        document.getElementById("productImage").src = product.image;
+        document.getElementById("productDesc").innerText = product.desc;
+
+        const ul = document.getElementById("productHighlights");
+        product.highlights.forEach((item) => {
+          const li = document.createElement("li");
+          li.innerText = item;
+          ul.appendChild(li);
+        });
+      }
+
+      function increaseQty() {
+        const qty = document.getElementById("quantity");
+        qty.value = parseInt(qty.value) + 1;
+      }
+
+      function decreaseQty() {
+        const qty = document.getElementById("quantity");
+        if (qty.value > 1) {
+          qty.value = parseInt(qty.value) - 1;
+        }
+      }
+
+      function addToCart() {
+        alert("Product added to cart!");
+      }
+    </script>
+  </body>
+</html>
