@@ -1,0 +1,54 @@
+body {
+  background: linear-gradient(135deg, #141e30, #243b55);
+  min-height: 100vh;
+  color: white;
+}
+
+.sidebar {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+.btn-gradient {
+  background: linear-gradient(45deg, #00c6ff, #212326);
+  border: none;
+  color: white;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+}
+
+.dashboard-card {
+  border: none;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.773);
+  transition: all 0.3s ease;
+  color: black;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 50px;
+}
+
+.modal-content {
+  border-radius: 15px;
+}
