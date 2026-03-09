@@ -1,20 +1,23 @@
 .vs/
+
+# C#
 bin/
 obj/
+
+# C++
 x64/
 Debug/
+Release/
 
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-
+*.obj
 *.dll
 *.exe
 *.pdb
-*.obj
 *.ilk
+*.idb
 
+*.user
+*.suo
 *.log
 *.cache
 *.tmp
