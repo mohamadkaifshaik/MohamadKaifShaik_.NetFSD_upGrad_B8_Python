@@ -2,10 +2,19 @@
 //Console.WriteLine("Hello, World!");
 
 using System;
+using System.Collections.Generic;
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        Console.WriteLine("Program");
+
+
+        Partialdemo p = new Partialdemo();
+        p.fname = "deepti";
+        p.lname = "shukla";
+        p.displaydata();
+
+
     }
 }
+
