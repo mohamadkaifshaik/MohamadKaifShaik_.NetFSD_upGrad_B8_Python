@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DiagonalMatrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SumAll.cs" />
+    <Compile Include="TransposeOfMatrix.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
