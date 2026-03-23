@@ -21,3 +21,5 @@ Release/
 *.log
 *.cache
 *.tmp
+
+node_modules/
