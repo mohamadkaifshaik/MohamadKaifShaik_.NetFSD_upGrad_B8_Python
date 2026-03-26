@@ -1,0 +1,37 @@
+﻿@model FirstApp.Models.Employee
+
+<h2>Create Employee</h2>
+
+<form method="post">
+    <p>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </p>
+
+    <p>
+        <label asp-for="Age"></label>
+        <input asp-for="Age" />
+    </p>
+
+    <p>
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" />
+    </p>
+
+    <p>
+        <label asp-for="Department"></label>
+        <select asp-for="Department">
+            <option>Development</option>
+            <option>HR</option>
+            <option>Research</option>
+        </select>
+    </p>
+
+    <p>
+        <label asp-for="Sex"></label>
+        <input type="radio" asp-for="Sex" value="M" />Male
+        <input type="radio" asp-for="Sex" value="F" />Female
+    </p>
+
+    <button type="submit">Submit</button>
+</form>
