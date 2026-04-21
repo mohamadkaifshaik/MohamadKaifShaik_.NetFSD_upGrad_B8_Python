@@ -1,0 +1,95 @@
+﻿@model EmployeeCRM.Core.DTOs.RegisterDTO
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">
+                        <i class="fas fa-user-plus"></i> Register for Employee CRM
+                    </h4>
+                </div>
+
+                <div class="card-body p-5">
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-circle"></i> 
+                            <strong>Registration Failed!</strong>
+                            @foreach (var modelState in ViewData.ModelState.Values)
+                            {
+                                @foreach (var error in modelState.Errors)
+                                {
+                                    <p>@error.ErrorMessage</p>
+                                }
+                            }
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <form method="post" novalidate>
+                    @* <form asp-controller="Employee" asp-action=:"Register" method="post" novalidate> *@
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">
+                                <i class="fas fa-envelope"></i> Email Address
+                            </label>
+                            <input type="email" class="form-control" asp-for="Email" 
+                                   placeholder="Enter your email" required>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="FullName" class="form-label">
+                                <i class="fas fa-user"></i> Full Name
+                            </label>
+                            <input type="text" class="form-control" asp-for="FullName" 
+                                   placeholder="Enter your full name" required>
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Password" class="form-label">
+                                <i class="fas fa-lock"></i> Password
+                            </label>
+                            <input type="password" class="form-control" asp-for="Password" 
+                                   placeholder="Enter a password (minimum 6 characters)" required>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ConfirmPassword" class="form-label">
+                                <i class="fas fa-lock-open"></i> Confirm Password
+                            </label>
+                            <input type="password" class="form-control" asp-for="ConfirmPassword" 
+                                   placeholder="Confirm your password" required>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 mb-3">
+                            <i class="fas fa-user-plus"></i> Register
+                        </button>
+                    </form>
+
+                    <hr>
+
+                    <p class="text-center">
+                        Already have an account?
+                        <a href="/Auth/Login" class="text-decoration-none">
+                            Login here
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

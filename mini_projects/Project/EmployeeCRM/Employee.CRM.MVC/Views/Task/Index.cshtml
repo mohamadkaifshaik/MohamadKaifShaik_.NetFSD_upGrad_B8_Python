@@ -1,0 +1,106 @@
+﻿@model IEnumerable<EmployeeCRM.Core.DTOs.TaskDTO>
+
+@{
+    ViewData["Title"] = "Tasks";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h2>
+                <i class="fas fa-tasks"></i> Tasks
+            </h2>
+        </div>
+        <div class="col-md-4 text-end">
+            @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+            {
+                <a href="/Task/Create" class="btn btn-primary">
+                    <i class="fas fa-plus-circle"></i> Create Task
+                </a>
+            }
+        </div>
+    </div>
+
+    <!-- Tasks Table -->
+    @if (Model.Any())
+    {
+        <div class="card shadow-sm">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th><i class="fas fa-list"></i> Title</th>
+                            <th><i class="fas fa-flag"></i> Priority</th>
+                            <th><i class="fas fa-signal"></i> Status</th>
+                            <th><i class="fas fa-calendar"></i> Due Date</th>
+                            <th><i class="fas fa-chart-bar"></i> Progress</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var task in Model)
+                        {
+                            <tr>
+                                <td>@task.Title</td>
+                                <td>
+                                    @switch (task.Priority)
+                                    {
+                                        case 1:
+                                            <span class="badge bg-success">Low</span>
+                                            break;
+                                        case 2:
+                                            <span class="badge bg-warning">Medium</span>
+                                            break;
+                                        case 3:
+                                            <span class="badge bg-danger">High</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>
+                                    <span class="badge bg-info">@task.Status</span>
+                                </td>
+                                <td>
+                                    @task.DueDate.ToString("MMM dd, yyyy")
+                                </td>
+                                <td>
+                                    <div class="progress" style="height: 20px;">
+                                        <div class="progress-bar" role="progressbar" 
+                                             style="width: @task.ProgressPercentage%">
+                                            @task.ProgressPercentage%
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="/Task/Details/@task.Id" class="btn btn-sm btn-info" 
+                                       title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    @if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole("Employee"))
+                                    {
+                                        <a href="/Task/Edit/@task.Id" class="btn btn-sm btn-warning" 
+                                           title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    }
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <a href="/Task/Delete/@task.Id" class="btn btn-sm btn-danger" 
+                                           title="Delete" onclick="return confirm('Are you sure?')">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i> No tasks found.
+        </div>
+    }
+</div>

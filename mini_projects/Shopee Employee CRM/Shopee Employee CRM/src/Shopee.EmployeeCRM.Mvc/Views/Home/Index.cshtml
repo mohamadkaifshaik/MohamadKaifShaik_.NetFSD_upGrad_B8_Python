@@ -1,0 +1,94 @@
+@model Shopee.EmployeeCRM.Mvc.ViewModels.DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="row g-4">
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h5>Total Employees</h5>
+                <h2>@Model.Summary.TotalEmployees</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h5>Total Clients</h5>
+                <h2>@Model.Summary.TotalClients</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h5>Total Tasks</h5>
+                <h2>@Model.Summary.TotalTasks</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h5>Completed Tasks</h5>
+                <h2>@Model.Summary.CompletedTasks</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4 g-4">
+    <div class="col-lg-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h4>Top Employees</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Completed Tasks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var employee in Model.Summary.TopEmployees)
+                    {
+                        <tr>
+                            <td>@employee.FullName</td>
+                            <td>@employee.Department</td>
+                            <td>@employee.CompletedTasksCount</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h4>Upcoming Tasks</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Employee</th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var task in Model.Summary.UpcomingTasks)
+                    {
+                        <tr>
+                            <td>@task.Title</td>
+                            <td>@task.EmployeeName</td>
+                            <td>@task.DueDate.ToString("dd MMM yyyy")</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

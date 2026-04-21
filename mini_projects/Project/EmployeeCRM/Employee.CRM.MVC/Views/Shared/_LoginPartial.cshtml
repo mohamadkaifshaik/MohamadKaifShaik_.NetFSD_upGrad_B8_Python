@@ -1,0 +1,16 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+            <i class="fas fa-user"></i> @User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="/Auth/Logout">Logout</a></li>
+        </ul>
+    </div>
+}
+else
+{
+    <a href="/Auth/Login" class="btn btn-primary me-2">Login</a>
+    <a href="/Auth/Register" class="btn btn-secondary">Register</a>
+}

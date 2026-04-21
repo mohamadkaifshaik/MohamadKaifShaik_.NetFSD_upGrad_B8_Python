@@ -1,0 +1,83 @@
+﻿@model EmployeeCRM.Core.DTOs.LoginDTO
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="fas fa-sign-in-alt"></i> Login to Employee CRM
+                    </h4>
+                </div>
+
+                <div class="card-body p-5">
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Login Failed!</strong>
+
+                            <div asp-validation-summary="All" class="text-danger"></div>
+
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                    }
+                    @* @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-circle"></i> 
+                            <strong>Login Failed!</strong>
+                            @if (ModelState.Values.SelectMany(v => v.Errors).FirstOrDefault() != null)
+                            {
+                                <p>@ModelState.Values.SelectMany(v => v.Errors).FirstOrDefault().ErrorMessage</p>
+                            }
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    } *@
+
+                    <form method="post" novalidate>
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">
+                                <i class="fas fa-envelope"></i> Email Address
+                            </label>
+                            <input type="email" class="form-control" asp-for="Email" 
+                                   placeholder="Enter your email" required>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Password" class="form-label">
+                                <i class="fas fa-lock"></i> Password
+                            </label>
+                            <input type="password" class="form-control" asp-for="Password" 
+                                   placeholder="Enter your password" required>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mb-3">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                    </form>
+
+                    <hr>
+
+                    <p class="text-center">
+                        Don't have an account?
+                        <a href="/Auth/Register" class="text-decoration-none">
+                            Register here
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

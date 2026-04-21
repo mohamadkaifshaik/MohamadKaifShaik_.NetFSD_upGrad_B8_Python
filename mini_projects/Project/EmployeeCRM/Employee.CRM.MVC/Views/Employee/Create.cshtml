@@ -1,0 +1,103 @@
+﻿@model EmployeeCRM.Core.DTOs.EmployeeDTO
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h2>
+                <i class="fas fa-user-plus"></i> Add New Employee
+            </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Employee Details</h5>
+                </div>
+
+                <div class="card-body">
+                    <form method="post" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="FirstName" class="form-label">First Name *</label>
+                                <input type="text" class="form-control" asp-for="FirstName" required>
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="LastName" class="form-label">Last Name *</label>
+                                <input type="text" class="form-control" asp-for="LastName" required>
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="Email" class="form-label">Email *</label>
+                                <input type="email" class="form-control" asp-for="Email" required>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="Phone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" asp-for="Phone">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="Position" class="form-label">Position *</label>
+                                <input type="text" class="form-control" asp-for="Position" required>
+                                <span asp-validation-for="Position" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="Salary" class="form-label">Salary *</label>
+                                <input type="number" class="form-control" asp-for="Salary" step="0.01" required>
+                                <span asp-validation-for="Salary" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="JoinDate" class="form-label">Join Date *</label>
+                                <input type="date" class="form-control" asp-for="JoinDate" required>
+                                <span asp-validation-for="JoinDate" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="Status" class="form-label">Status</label>
+                                <select class="form-select" asp-for="Status">
+                                    <option value="1">Active</option>
+                                    <option value="2">Inactive</option>
+                                    <option value="3">On Leave</option>
+                                    <option value="4">Terminated</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="/Employee" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Employee
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
