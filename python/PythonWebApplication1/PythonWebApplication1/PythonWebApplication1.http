@@ -1,0 +1,6 @@
+@PythonWebApplication1_HostAddress = http://localhost:5128
+
+GET {{PythonWebApplication1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

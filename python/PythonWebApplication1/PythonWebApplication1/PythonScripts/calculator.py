@@ -1,0 +1,13 @@
+import sys
+import json
+
+try:
+    num1 = int(sys.argv[1])
+    num2 = int(sys.argv[2])
+
+    result = num1 + num2
+
+    print(json.dumps({"result": result}))
+
+except Exception as e:
+    print(json.dumps({"error": str(e)}))
